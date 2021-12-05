@@ -1,0 +1,27 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: curl
+      apt: 
+        name: curl
+    - command: curl http://www.google.com -o file.txt
+
+    
+- hosts: ubuntu
+  become: true
+  tasks:
+    - name: ansible copy file from remote to local.
+      fetch:
+        src: /home/adminuser/file.txt
+        dest: /home/jeka/lab_11
+# - hosts: hosts
+#   tasks:
+#   - name: request
+#     command: curl http://www.google.com -o file2.txt
+
+# - hosts: all
+#   tasks:
+#   - name: listing
+#     command: ls  
+
